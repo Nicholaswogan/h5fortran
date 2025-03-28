@@ -718,15 +718,6 @@ if(NOT HDF5_ROOT)
   endif()
 endif()
 
-# Conda causes numerous problems with finding HDF5, so exclude from search
-if(DEFINED ENV{CONDA_PREFIX})
-  set(h5_ignore_path
-    $ENV{CONDA_PREFIX}/bin $ENV{CONDA_PREFIX}/lib $ENV{CONDA_PREFIX}/include
-    $ENV{CONDA_PREFIX}/Library/bin $ENV{CONDA_PREFIX}/Library/lib $ENV{CONDA_PREFIX}/Library/include
-  )
-  list(APPEND CMAKE_IGNORE_PATH ${h5_ignore_path})
-endif()
-
 # --- library suffixes
 
 set(hdf5_lsuf lib hdf5/lib)  # need explicit "lib" for self-built HDF5
